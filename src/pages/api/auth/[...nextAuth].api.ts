@@ -30,7 +30,6 @@ export function buildNextAuthOptions(
           }
         },
       }),
-      // ...add more providers here
     ],
 
     callbacks: {
