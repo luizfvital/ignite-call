@@ -79,8 +79,6 @@ export function Calendar() {
       return weeks
     }, [])
 
-    console.log(calendarWeeks)
-
     return calendarWeeks
   }, [currentDate])
 
@@ -118,44 +116,17 @@ export function Calendar() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay disabled>2</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>3</CalendarDay>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>1</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay disabled>2</CalendarDay>
-            </td>
-            <td>
-              <CalendarDay>3</CalendarDay>
-            </td>
-          </tr>
+          {calendarWeeks.map(({ week, days }) => (
+            <tr key={week}>
+              {days.map(({ date, disabled }) => (
+                <td key={date.toString()}>
+                  <CalendarDay disabled={disabled}>
+                    {date.get('date')}
+                  </CalendarDay>
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </CalendarBody>
     </CalendarContainer>
