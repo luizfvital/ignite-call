@@ -134,7 +134,7 @@ export default function TimeIntervals() {
                           onCheckedChange={(checked) =>
                             field.onChange(checked === true)
                           }
-                          checked={field.value}
+                          checked={!!field.value}
                         />
                       )
                     }}
